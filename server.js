@@ -86,7 +86,7 @@ function addDepartment() {
         connection.query("INSERT INTO department (name) VALUES (?)", [answer.deptName] , function(err, res) {
             if (err) throw err;
             console.table(res)
-            startScreen()
+            appInit()
     })
     })
 }
@@ -117,7 +117,7 @@ function addRole() {
       connection.query("INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)", [answer.roleName, answer.salaryTotal, answer.deptID], function(err, res) {
         if (err) throw err;
         console.table(res);
-        startScreen();
+        appInit();
       });
     });
 }
@@ -152,7 +152,7 @@ function addEmployee() {
       connection.query("INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)", [answer.eeFirstName, answer.eeLastName, answer.roleID, answer.managerID], function(err, res) {
         if (err) throw err;
         console.table(res);
-        startScreen();
+        appInit();
       });
     });
 }
@@ -177,7 +177,7 @@ function updateEmployee() {
       connection.query('UPDATE employee SET role_id=? WHERE first_name= ?',[answer.updateRole, answer.eeUpdate],function(err, res) {
         if (err) throw err;
         console.table(res);
-        startScreen();
+        appInit();
       });
     });
 }
@@ -188,7 +188,7 @@ function viewDepartment() {
   connection.query(query, function(err, res) {
     if (err) throw err;
     console.table(res);
-    startScreen();
+    appInit();
   });
 }
 
@@ -198,7 +198,7 @@ function viewRoles() {
   connection.query(query, function(err, res) {
     if (err) throw err;
     console.table(res);
-    startScreen();
+    appInit();
   });
 
 }
@@ -209,7 +209,7 @@ function viewEmployees() {
   connection.query(query, function(err, res) {
     if (err) throw err;
     console.table(res);
-    startScreen();
+    appInit();
   });
   
 }
